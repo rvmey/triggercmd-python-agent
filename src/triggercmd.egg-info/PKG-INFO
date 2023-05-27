@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: triggercmd
+Version: 0.0.17
+Summary: Python agent for TRIGGERcmd cloud service.
+Author-email: Russell VanderMey <russell@triggercmd.com>
+Project-URL: repository, https://github.com/rvmey/triggercmd-python-agent
+Project-URL: homepage, https://triggercmd.com
+Keywords: triggercmd,alexa,echo-dot
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: <3.11,>=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# TRIGGERcmd Python Package
+
+For the full TRIGGERcmd agent, visit https://triggercmd.com.
+
+Use this package to listen for triggers sent to a computer in your TRIGGERcmd account.
+
+Send triggers with Amazon Alexa, Google Assistant, IFTTT, Zapier, Smart Things, etc.  See [this page](https://www.triggercmd.com/forum/topic/30/list-of-ways-to-trigger-your-commands) for more ways.
+
+## Usage:
+
+```
+import json
+from triggercmd import agent
+
+computer_id = (your triggercmd computer id)
+token = (your triggercmd token)
+
+def my_function(msg):
+    print(msg)
+    message = json.loads(msg)
+    print("Received this trigger:", message['trigger'])
+
+agent.connect(computer_id, token, my_function)
+```
+
+## Example output:
+
+```
+Connected
+{"trigger":"Calculator","id":"13123391234567891acbf123"}
+Received this trigger: Calculator
+{"trigger":"Notepad","id":"13123391234567891acbf124"}
+Received this trigger: Notepad
+```

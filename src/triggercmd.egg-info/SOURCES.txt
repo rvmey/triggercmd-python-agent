@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/triggercmd/__init__.py
+src/triggercmd/agent.py
+src/triggercmd/sails_websocket.py
+src/triggercmd.egg-info/PKG-INFO
+src/triggercmd.egg-info/SOURCES.txt
+src/triggercmd.egg-info/dependency_links.txt
+src/triggercmd.egg-info/requires.txt
+src/triggercmd.egg-info/top_level.txt

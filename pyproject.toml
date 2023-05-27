@@ -1,0 +1,23 @@
+[project]
+name = "triggercmd"
+version = "0.0.17"
+description = "Python agent for TRIGGERcmd cloud service."
+authors = [
+  { name="Russell VanderMey", email="russell@triggercmd.com" },
+]
+readme = "README.md"
+requires-python = ">=3.8,<3.11"
+keywords = ["triggercmd", "alexa", "echo-dot"]
+classifiers = [
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+  "requests",
+  "websocket-client"
+]
+
+[project.urls]
+"repository" = "https://github.com/rvmey/triggercmd-python-agent"
+"homepage" = "https://triggercmd.com"
