@@ -32,3 +32,6 @@ Received this trigger: Calculator
 {"trigger":"Notepad","id":"13123391234567891acbf124"}
 Received this trigger: Notepad
 ```
+
+## Based on this project:
+https://github.com/gilsdav/python_sails_websocket_client/tree/master
