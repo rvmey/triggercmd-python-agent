@@ -18,7 +18,7 @@ token = (your triggercmd token)
 def my_function(msg):
     print(msg)
     message = json.loads(msg)
-    print("Received this trigger:", message['trigger'])
+    print("Received this trigger:", message['trigger'], "and these parameters:", message['params'])
 
 agent.connect(computer_id, token, my_function)
 ```
@@ -27,10 +27,12 @@ agent.connect(computer_id, token, my_function)
 
 ```
 Connected
-{"trigger":"Calculator","id":"13123391234567891acbf123"}
-Received this trigger: Calculator
-{"trigger":"Notepad","id":"13123391234567891acbf124"}
-Received this trigger: Notepad
+{"trigger":"Notepad","id":"13123391234567891acbf124","params":"on"}
+Received this trigger: Notepad and these parameters: on
+{"trigger":"Calculator","id":"13123391234567891acbf123","params":"on"}
+Received this trigger: Calculator and these parameters: on
+{"trigger":"Calculator","id":"13123391234567891acbf123","params":"off"}
+Received this trigger: Calculator and these parameters: off
 ```
 
 ## Based on this project:
