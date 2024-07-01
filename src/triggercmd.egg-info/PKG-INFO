@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: triggercmd
-Version: 0.0.17
+Version: 0.0.18
 Summary: Python agent for TRIGGERcmd cloud service.
 Author-email: Russell VanderMey <russell@triggercmd.com>
 Project-URL: repository, https://github.com/rvmey/triggercmd-python-agent
@@ -9,9 +9,11 @@ Keywords: triggercmd,alexa,echo-dot
 Classifier: Operating System :: OS Independent
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Topic :: Software Development :: Libraries :: Python Modules
-Requires-Python: <3.11,>=3.8
+Requires-Python: >=3.8
 Description-Content-Type: text/markdown
 License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: websocket-client
 
 # TRIGGERcmd Python Package
 
@@ -33,7 +35,7 @@ token = (your triggercmd token)
 def my_function(msg):
     print(msg)
     message = json.loads(msg)
-    print("Received this trigger:", message['trigger'])
+    print("Received this trigger:", message['trigger'], "and these parameters:", message['params'])
 
 agent.connect(computer_id, token, my_function)
 ```
@@ -42,8 +44,13 @@ agent.connect(computer_id, token, my_function)
 
 ```
 Connected
-{"trigger":"Calculator","id":"13123391234567891acbf123"}
-Received this trigger: Calculator
-{"trigger":"Notepad","id":"13123391234567891acbf124"}
-Received this trigger: Notepad
+{"trigger":"Notepad","id":"13123391234567891acbf124","params":"on"}
+Received this trigger: Notepad and these parameters: on
+{"trigger":"Calculator","id":"13123391234567891acbf123","params":"on"}
+Received this trigger: Calculator and these parameters: on
+{"trigger":"Calculator","id":"13123391234567891acbf123","params":"off"}
+Received this trigger: Calculator and these parameters: off
 ```
+
+## Based on this project:
+https://github.com/gilsdav/python_sails_websocket_client/tree/master

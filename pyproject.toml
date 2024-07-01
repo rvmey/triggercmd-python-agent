@@ -1,12 +1,12 @@
 [project]
 name = "triggercmd"
-version = "0.0.17"
+version = "0.0.18"
 description = "Python agent for TRIGGERcmd cloud service."
 authors = [
   { name="Russell VanderMey", email="russell@triggercmd.com" },
 ]
 readme = "README.md"
-requires-python = ">=3.8,<3.11"
+requires-python = ">=3.8"
 keywords = ["triggercmd", "alexa", "echo-dot"]
 classifiers = [
     "Operating System :: OS Independent",
