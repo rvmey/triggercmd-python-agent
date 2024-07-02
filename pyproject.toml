@@ -1,6 +1,6 @@
 [project]
 name = "triggercmd"
-version = "0.0.18"
+version = "0.0.20"
 description = "Python agent for TRIGGERcmd cloud service."
 authors = [
   { name="Russell VanderMey", email="russell@triggercmd.com" },

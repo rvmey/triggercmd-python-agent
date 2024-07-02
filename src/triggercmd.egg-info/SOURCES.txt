@@ -3,6 +3,7 @@ README.md
 pyproject.toml
 src/triggercmd/__init__.py
 src/triggercmd/agent.py
+src/triggercmd/client.py
 src/triggercmd/sails_websocket.py
 src/triggercmd.egg-info/PKG-INFO
 src/triggercmd.egg-info/SOURCES.txt
