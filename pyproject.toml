@@ -1,6 +1,6 @@
 [project]
 name = "triggercmd"
-version = "0.0.20"
+version = "0.0.21"
 description = "Python agent for TRIGGERcmd cloud service."
 authors = [
   { name="Russell VanderMey", email="russell@triggercmd.com" },
@@ -15,7 +15,8 @@ classifiers = [
 ]
 dependencies = [
   "requests",
-  "websocket-client"
+  "websocket-client",
+  "PyJWT"
 ]
 
 [project.urls]
