@@ -4,6 +4,7 @@ pyproject.toml
 src/triggercmd/__init__.py
 src/triggercmd/agent.py
 src/triggercmd/client.py
+src/triggercmd/ha.py
 src/triggercmd/sails_websocket.py
 src/triggercmd/utils.py
 src/triggercmd.egg-info/PKG-INFO
