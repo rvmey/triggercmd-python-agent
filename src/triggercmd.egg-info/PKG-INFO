@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: triggercmd
-Version: 0.0.22
+Version: 0.0.23
 Summary: Python agent for TRIGGERcmd cloud service.
 Author-email: Russell VanderMey <russell@triggercmd.com>
 Project-URL: repository, https://github.com/rvmey/triggercmd-python-agent

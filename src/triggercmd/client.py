@@ -11,3 +11,10 @@ def list(token):
     headers = {"Authorization": "Bearer " + token}
     r = httpx.get(url, headers=headers)
     return r
+
+async def async_trigger(token, data):
+    url = "https://www.triggercmd.com/api/run/trigger"
+    headers = {"Authorization": "Bearer " + token}
+    async with httpx.AsyncClient() as client:
+        r = await client.post(url, headers=headers, data=data)
+        return r
