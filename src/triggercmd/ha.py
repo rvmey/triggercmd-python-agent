@@ -1,4 +1,5 @@
 from . import client, utils
+from .exceptions import TRIGGERcmdConnectionError
 
 class Hub:
     """Hub for TRIGGERcmd."""
@@ -35,7 +36,12 @@ class Hub:
     def token(self) -> str:
         """Token for hub."""
         return self._token
-
+    
+    async def connection_test(self):
+        """Test connection."""
+        r = await client.async_list(self._token)
+        if not r.status_code == 200:
+            raise TRIGGERcmdConnectionError
 
 class Trigger:
     """trigger for TRIGGERcmd."""
