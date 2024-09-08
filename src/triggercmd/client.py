@@ -1,4 +1,5 @@
 import httpx
+from .exceptions import TRIGGERcmdConnectionError
 
 def trigger(token, data):
     url = "https://www.triggercmd.com/api/run/trigger"
@@ -30,5 +31,9 @@ async def async_connection_test(token):
     url = "https://www.triggercmd.com/api/ha/connection_test"
     headers = {"Authorization": "Bearer " + token}
     async with httpx.AsyncClient() as client:
-        r = await client.get(url, headers=headers)
-        return r.status_code
+        try:
+            r = await client.get(url, headers=headers)
+        except Exception as e:
+            raise TRIGGERcmdConnectionError
+        else:
+            return r.status_code
