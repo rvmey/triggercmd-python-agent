@@ -25,3 +25,10 @@ async def async_list(token):
     async with httpx.AsyncClient() as client:
         r = await client.get(url, headers=headers)
         return r
+    
+async def async_connection_test(token):
+    url = "https://www.triggercmd.com/api/ha/connection_test"
+    headers = {"Authorization": "Bearer " + token}
+    async with httpx.AsyncClient() as client:
+        r = await client.get(url, headers=headers)
+        return r.status_code
