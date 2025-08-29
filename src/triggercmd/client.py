@@ -14,30 +14,24 @@ def list(token):
     return r
 
 # For Home Assistant integration:
-async def async_trigger(token, data, hass):
+async def async_trigger(token, data, hass_client):
     url = "https://www.triggercmd.com/api/run/trigger"
     headers = {"Authorization": "Bearer " + token}
-    from homeassistant.helpers.httpx_client import get_async_client
-    async with get_async_client(hass) as client:
-        r = await client.post(url, headers=headers, data=data)
-        return r
+    r = await hass_client.post(url, headers=headers, data=data)
+    return r
 
-async def async_list(token, hass):
+async def async_list(token, hass_client):
     url = "https://www.triggercmd.com/api/command/simplelist"
     headers = {"Authorization": "Bearer " + token}
-    from homeassistant.helpers.httpx_client import get_async_client
-    async with get_async_client(hass) as client:
-        r = await client.get(url, headers=headers)
-        return r
+    r = await hass_client.get(url, headers=headers)
+    return r
     
-async def async_connection_test(token, hass):
+async def async_connection_test(token, hass_client):
     url = "https://www.triggercmd.com/api/ha/connection_test"
     headers = {"Authorization": "Bearer " + token}
-    from homeassistant.helpers.httpx_client import get_async_client
-    async with get_async_client(hass) as client:
-        try:
-            r = await client.get(url, headers=headers)
-        except Exception as e:
-            raise TRIGGERcmdConnectionError
-        else:
-            return r.status_code
+    try:
+        r = await hass_client.get(url, headers=headers)
+    except Exception as e:
+        raise TRIGGERcmdConnectionError
+    else:
+        return r.status_code
