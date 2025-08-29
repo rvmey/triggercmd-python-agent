@@ -10,21 +10,25 @@ class Hub:
         """Init hub."""
         self._id = utils.user_id(token)
         self._token = token
-
-        r = client.list(token)
         self.computers = []
+        self.triggers = []
+        self.online = False  # Set default
+        self.hass = None  # Placeholder for Home Assistant instance
+
+    async def async_init(self, hass):
+        r = await client.async_list(self._token, hass)
+        self.computers = []
+        self.hass = hass  # Store Home Assistant instance
         for item in r.json():
             computer = item["computer"]
             if Computer(computer, self) not in self.computers:
                 self.computers.append(Computer(computer, self))
-
         self.triggers = []
         for item in r.json():
             trigger = item["trigger"]
             computer = item["computer"]
             if Trigger(computer, trigger, self) not in self.computers:
                 self.triggers.append(Trigger(computer, trigger, self))
-
         self.online = True
 
     @property
@@ -37,9 +41,9 @@ class Hub:
         """Token for hub."""
         return self._token
     
-    async def connection_test(self):
+    async def connection_test(self, hass):
         """Test connection."""
-        r = await client.async_list(self._token)
+        r = await client.async_list(self._token, hass)
         if not r.status_code == 200:
             raise TRIGGERcmdConnectionError
 

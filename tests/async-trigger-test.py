@@ -11,7 +11,7 @@ async def main():
     sender = "Python Tester"
     data = {"computer": "laptop", "trigger": "calculator", "params": "on", "sender": sender}
 
-    r = await client.async_trigger(token,data)
+    r = await client.async_trigger(token,data,None)
 
     print(r.json())
 

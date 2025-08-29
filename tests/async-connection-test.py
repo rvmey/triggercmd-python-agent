@@ -8,7 +8,7 @@ async def main():
 
     print(token)
 
-    status_code = await client.async_connection_test(token)
+    status_code = await client.async_connection_test(token, None)
 
     print(status_code)
 

@@ -1,6 +1,6 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: triggercmd
-Version: 0.0.27
+Version: 0.0.33
 Summary: Python agent for TRIGGERcmd cloud service.
 Author-email: Russell VanderMey <russell@triggercmd.com>
 Project-URL: repository, https://github.com/rvmey/triggercmd-python-agent
@@ -15,6 +15,7 @@ License-File: LICENSE
 Requires-Dist: requests
 Requires-Dist: websocket-client
 Requires-Dist: PyJWT
+Dynamic: license-file
 
 # TRIGGERcmd Python Package
 
