@@ -13,12 +13,12 @@ class Hub:
         self.computers = []
         self.triggers = []
         self.online = False  # Set default
-        self.hass_client = None
+        self.httpx_client = None
 
-    async def async_init(self, hass_client):
-        r = await client.async_list(self._token, hass_client)
+    async def async_init(self, httpx_client):
+        r = await client.async_list(self._token, httpx_client)
         self.computers = []
-        self.hass_client = hass_client
+        self.httpx_client = httpx_client
         for item in r.json():
             computer = item["computer"]
             if Computer(computer, self) not in self.computers:
@@ -41,9 +41,9 @@ class Hub:
         """Token for hub."""
         return self._token
     
-    async def connection_test(self, hass_client):
+    async def connection_test(self, httpx_client):
         """Test connection."""
-        r = await client.async_list(self._token, hass_client)
+        r = await client.async_list(self._token, httpx_client)
         if not r.status_code == 200:
             raise TRIGGERcmdConnectionError
 
